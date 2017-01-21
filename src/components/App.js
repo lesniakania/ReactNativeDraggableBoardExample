@@ -23,15 +23,22 @@ class App extends Component {
           { id: 5, name: 'Item5' },
           { id: 6, name: 'Item6' },
           { id: 7, name: 'Item7' },
-          { id: 8, name: 'Item8' }
+          { id: 8, name: 'Item8' },
+          { id: 9, name: 'Item9' },
         ]
       },
       {
         id: 2,
         name: 'Column2',
         rows: [
-          { id: 9, name: 'Item9' },
           { id: 10, name: 'Item10' }
+        ]
+      },
+      {
+        id: 3,
+        name: 'Column3',
+        rows: [
+          { id: 11, name: 'Item11' }
         ]
       }
     ];
@@ -52,8 +59,13 @@ class App extends Component {
   }
 
   renderRow(item) {
+    let style = [styles.item];
+    // Just to show that other sizes works as well
+    if (item.id == 2) {
+      style.push({ height: 100 });
+    }
     return (
-      <View style={styles.item}><Text>{item.name}</Text></View>
+      <View style={style}><Text>{item.name}</Text></View>
     )
   }
 
